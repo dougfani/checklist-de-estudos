@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import './dialog.style.css';
 
 export function Dialog() {
@@ -6,18 +7,20 @@ export function Dialog() {
 
     // "Show the dialog" button opens the dialog modally
 
+    const dialogRef = useRef(null);
+
     const openDialog = () => {
-        dialog.showModal();
+        dialogRef.current.showModal();
     };
 
     // "Close" button closes the dialog
     const closeDialog = () => {
-        dialog.close();
+        dialogRef.current.close();
     };
 
     return (
         <>
-            <dialog>
+            <dialog ref={dialogRef}>
                 <button autoFocus onClick={closeDialog}>
                     Close
                 </button>
