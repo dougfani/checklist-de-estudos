@@ -24,8 +24,4 @@
     padding: 10px 0 0;
 }
 
-.dialog .body form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+
