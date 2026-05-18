@@ -3,6 +3,7 @@ import { ChecklistsWrapper } from "./components/ChecklistsWrapper"
 import { Container } from "./components/Container"
 import { Dialog } from "./components/Dialog"
 import { FabButton } from "./components/FabButton"
+import { TextInput } from "./components/TextInput"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { Heading } from "./components/Heading"
@@ -84,7 +85,9 @@ function App() {
           </ToDoList>
           <Footer>
           <Dialog isOpen={showDialog} onClose={toggleDialog} >
-            <p>This modal dialog has a groovy backdrop!</p>
+            <form>
+              <TextInput placeholder='Digite o item que deseja adicionar'></TextInput>
+            </form>
           </Dialog>
             <FabButton onClick={toggleDialog} >
               <IconPlus />

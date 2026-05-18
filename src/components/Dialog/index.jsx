@@ -31,16 +31,12 @@ export function Dialog({ isOpen, onClose, children }) {
     return (
         <>
             <dialog ref={dialogRef} className="dialog">
-                <div className='btn-close-wrapper'>
-                    <button 
-                        autoFocus 
-                        onClick={onClose}
-                        className='btn-close'
-                    >
+                <div className="btn-close-wrapper">
+                    <button autoFocus onClick={onClose} className="btn-close">
                         <IconClose />
                     </button>
-                    {children}
                 </div>
+                <div className='body'>{children}</div>
             </dialog>
         </>
     );
