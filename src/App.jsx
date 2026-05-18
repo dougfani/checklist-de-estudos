@@ -11,6 +11,7 @@ import { IconPlus, IconSchool } from "./components/icons"
 import { SubHeading } from "./components/SubHeading"
 import { ToDoItem } from "./components/ToDoItem"
 import { ToDoList } from "./components/ToDoList"
+import { SaveButton } from "./components/SaveButton"
 
 const todos = [
   {
@@ -87,6 +88,7 @@ function App() {
           <Dialog isOpen={showDialog} onClose={toggleDialog} >
             <form>
               <TextInput placeholder='Digite o item que deseja adicionar'></TextInput>
+              <SaveButton>Salvar item</SaveButton>
             </form>
           </Dialog>
             <FabButton onClick={toggleDialog} >

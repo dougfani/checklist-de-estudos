@@ -9,6 +9,7 @@
     padding: 12px;
     text-align: center;
     background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .text-input::placeholder {
