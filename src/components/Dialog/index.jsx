@@ -11,7 +11,6 @@ export function Dialog({ isOpen, onClose, children }) {
     const dialogRef = useRef(null);
 
     useEffect(() => {
-        console.log('Deveríamos mostrar a modal?', isOpen);
         if (isOpen) {
             openDialog();
         } else {
@@ -36,7 +35,7 @@ export function Dialog({ isOpen, onClose, children }) {
                         <IconClose />
                     </button>
                 </div>
-                <div className='body'>{children}</div>
+                <div className="body">{children}</div>
             </dialog>
         </>
     );
