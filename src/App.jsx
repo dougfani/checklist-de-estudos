@@ -91,7 +91,7 @@ function App() {
     const toggleTodoCompleted = (todo) => {
         setTodos(prevState => {
             return prevState.map(t => {
-                if (t.id == todo.id) {
+                if (t.id === todo.id) {
                     return {
                         ...t,
                         completed: !t.completed
@@ -99,6 +99,12 @@ function App() {
                 }
                 return t
             })
+        })
+    }
+
+    const deleteTodo = (todo) => {
+        setTodos(prevState => {
+            return prevState.filter( t => t.id != todo.id)
         })
     }
 
@@ -116,7 +122,12 @@ function App() {
                         {todos
                             .filter((t) => !t.completed)
                             .map(function (t) {
-                                return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />;
+                                return <ToDoItem 
+                                    key={t.id} 
+                                    item={t} 
+                                    onToggleCompleted={toggleTodoCompleted}
+                                    onDeleteTodo={deleteTodo}
+                                />;
                             })}
                     </ToDoList>
                     <SubHeading>Concluído</SubHeading>
@@ -124,7 +135,11 @@ function App() {
                         {todos
                             .filter((t) => t.completed)
                             .map(function (t) {
-                                return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />;
+                                return <ToDoItem 
+                                    key={t.id} 
+                                    item={t} onToggleCompleted={toggleTodoCompleted}
+                                    onDeleteTodo={deleteTodo}
+                                />;
                             })}
                     </ToDoList>
                     <Footer>
