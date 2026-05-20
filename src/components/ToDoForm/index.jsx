@@ -9,6 +9,7 @@ export function TodoForm({ onSubmit }) {
             <TextInput 
                 placeholder="Digite o item que deseja adicionar"
                 required
+                name='description'
             >
             </TextInput>
             <SaveButton>Salvar item</SaveButton>
