@@ -10,6 +10,7 @@ import { IconPlus, IconSchool } from './components/icons';
 import { TodoForm } from './components/ToDoForm';
 import TodoContext from './components/TodoProvider/TodoContext';
 import { TodoGroup } from './components/TodoGroup';
+import { EmptyState } from './components/EmptyState';
 
 function App() {
     const { todos, addTodo, showDialog, openFormTodoDialog, closeFormTodoDialog, selectedTodo, editTodo } =
@@ -34,6 +35,7 @@ function App() {
                 </Header>
                 <ChecklistsWrapper>
                     <TodoGroup heading="Para estudar" items={todos.filter((t) => !t.completed)} />
+                    {todos.length == 0 && <EmptyState />}
                     <TodoGroup heading="Concluído" items={todos.filter((t) => t.completed)} />
                     <Footer>
                         <Dialog isOpen={showDialog} onClose={closeFormTodoDialog}>
