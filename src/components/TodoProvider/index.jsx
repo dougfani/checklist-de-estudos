@@ -18,7 +18,7 @@ export function TodoProvider({ children }) {
 
     const closeFormTodoDialog = () => {
         setShowDialog(false);
-        setSelectedTodo(null)
+        setSelectedTodo(null);
     };
 
     useEffect(() => {
@@ -52,6 +52,20 @@ export function TodoProvider({ children }) {
         });
     };
 
+    const editTodo = (formData) => {
+        setTodos((prevState) => {
+            return prevState.map((t) => {
+                if (t.id === selectedTodo.id) {
+                    return {
+                        ...t,
+                        description: formData.get('description'),
+                    };
+                }
+                return t;
+            });
+        });
+    };
+
     const deleteTodo = (todo) => {
         setTodos((prevState) => {
             return prevState.filter((t) => t.id != todo.id);
@@ -69,6 +83,7 @@ export function TodoProvider({ children }) {
                 openFormTodoDialog,
                 closeFormTodoDialog,
                 selectedTodo,
+                editTodo
             }}
         >
             {children}
